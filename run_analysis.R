@@ -13,8 +13,11 @@ if ( !dir.exists( output.dir ) )
     dir.create( data.dir, recursive=TRUE );
 }
 
-download.file(
-    url="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",
-    destfile=file.path(data.dir,download.destfile),
-    method=download.method
-);
+if ( !file.exists( file.path(data.dir,download.destfile) ) )
+{
+    download.file(
+	url="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",
+	destfile=file.path(data.dir,download.destfile),
+	method=download.method
+    );
+}
