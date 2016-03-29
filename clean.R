@@ -4,7 +4,7 @@
 source("globals.R");
 
 unlink( file.path( data.dir, download.destfile ) );
-unlink( data.dir );
+result = file.remove( data.dir );
 
 unlink( file.path( output.dir, output.destfile ) );
-unlink( output.dir );
+result = file.remove( output.dir );
