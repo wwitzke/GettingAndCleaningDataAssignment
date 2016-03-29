@@ -6,3 +6,6 @@
 data.dir = "data";
 output.dir = "out";
 download.method = "auto";
+
+download.destfile = "RawDataset.zip";
+output.destfile = "TidyDataset.txt";

@@ -3,4 +3,8 @@
 #   Grab some global definitions.
 source("globals.R");
 
-unlink(data.dir, recursive=TRUE);
+unlink( file.path( data.dir, download.destfile ) );
+unlink( data.dir );
+
+unlink( file.path( output.dir, output.destfile ) );
+unlink( output.dir );
