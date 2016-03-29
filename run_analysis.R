@@ -1,0 +1,15 @@
+#!/usr/bin/R --silent -f
+
+#   Grab some global definitions.
+source("globals.R");
+
+if ( !dir.exists(data.dir) )
+{
+    dir.create(data.dir, recursive=TRUE);
+}
+
+download.file(
+    url="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",
+    destfile=file.path(data.dir,"RawDataset.zip"),
+    method=download.method
+);
