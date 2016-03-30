@@ -104,5 +104,6 @@ and clean up the temporary files created by unzipping. Once the files are
 loaded into data frames, the data frames are assembled into a single data
 table, cleaning the variable names, selecting means and standard deviations
 from the input data, applying labels to the test and train datasets in the
-compiled rows, and creating and labeling factors as appropriate. Finally, the
-code saves the now tidy data.
+compiled rows, and creating and labeling factors as appropriate. The data is
+then averaged across subject/activity pairs. Finally, the code saves the now
+tidy data in the output directory (default name "TidyDataset.txt").

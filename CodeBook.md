@@ -475,14 +475,17 @@ data set does not say.
 
 All values were pulled from the original dataset files. Most column names,
 except for setname, subjectid, and activity, were pulled from features.txt.
-Data for that data was pulled from train/X\_train.txt and test/X\_test.txt.
-Only the columns that specifically mentioned "mean" or "std" were kept. All
-others were dropped. The "setname" column was set to "test" or "train" for rows
-based on the files from which they were pulled. The subjectid variable was set
-based on values from the test/subject\_test.txt and train/subject\_train.txt
-files. Finally, the activity column was set based on the test/y\_test.txt and
-train/y\_train.txt, and labeled based on the information in the
-activity\_labels.txt file.
+Data for the various features was pulled from train/X\_train.txt and
+test/X\_test.txt. Only the columns that specifically mentioned "mean" or "std"
+were kept. All others were dropped. The "setname" column was set to "test" or
+"train" for rows based on the files from which they were pulled. The subjectid
+variable was set based on values from the test/subject\_test.txt and
+train/subject\_train.txt files. The activity column was set based on the
+test/y\_test.txt and train/y\_train.txt, and labeled based on the information
+in the activity\_labels.txt file.
 
 Column names were reformatted to be more descriptive and to replace some
 unwanted characters.
+
+Finally, variables were averaged across subject/activity pairs to create the
+final 180 observations.

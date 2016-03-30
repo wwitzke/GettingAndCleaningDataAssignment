@@ -169,6 +169,13 @@ names( allData ) =
 	str_replace_all( names( allData ), "^f", "frequency" )
     );
 
+allData = 
+    summarize_each(
+	group_by( allData, setname, subjectid, activity ),
+	funs( mean ),
+	-(setname:activity)
+    );
+
 #   Looks like the data is pretty clean, otherwise, so just write it out, I
 #   guess. . ?
 write.table(
