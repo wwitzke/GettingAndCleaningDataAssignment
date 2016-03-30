@@ -4,6 +4,9 @@
 
 ### Overview
 
+This section describes required libraries that must be installed before the
+analysis can be run, as well as options that can be changed.
+
 All global options that can be (relatively) safely modified are found in
 "globals.R". If you need to change minor aspects of behavior for this program
 (such as where data is stored on your system or how files are downloaded or
@@ -12,6 +15,15 @@ to do it. Modify other files at your own risk.
 
 I want to say that this should not *normally* be necessary. In a just world,
 this would certainly be the case.
+
+### Required libraries
+
+These libraries must be installed separately. This analysis will *not* attempt
+to install libraries for you.
+
+- stringr
+- dplyr
+
 
 ### Options that can be changed in "globals.R"
 
@@ -42,12 +54,19 @@ to change this to "curl"
 
 `download.destfile`
 
-- This is the local name to give to the downloaded file
+- This is the local name to give to the downloaded file stored in the
+`data.dir`directory
 - By default this is "RawDataset.zip"
+
+`timestamp.file`
+
+- This is the name of the file that stores the download time for the raw data,
+to be kept with the tidy data output file
+- By default this is "Timestamp.txt"
 
 `output.destfile`
 
-- This is the name of the created tidy data file
+- This is the name of the created tidy data file in the `output.dir` directory
 - By default this is "TidyDataset.txt"
 
 ## Instructions to run
@@ -74,3 +93,16 @@ analysis on a new version of the dataset.
 
 Assuming you have your environment and permissions set up properly, you can run
 this from the commmand line using `./clean.R`
+
+## How it all works
+
+The script, `run_analysis.R`, will check to see if the data has been downloaded
+and, if not, download and timestamp the download. It will then unzip the data
+(assuming that the data can be unzipped without overwriting anything and the
+directories created can be removed afterwards), load the tables into memory,
+and clean up the temporary files created by unzipping. Once the files are
+loaded into data frames, the data frames are assembled into a single data
+table, cleaning the variable names, selecting means and standard deviations
+from the input data, applying labels to the test and train datasets in the
+compiled rows, and creating and labeling factors as appropriate. Finally, the
+code saves the now tidy data.

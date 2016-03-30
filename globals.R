@@ -8,4 +8,5 @@ output.dir = "out";
 download.method = "auto";
 
 download.destfile = "RawDataset.zip";
+timestamp.file = "Timestamp.txt";
 output.destfile = "TidyDataset.txt";
